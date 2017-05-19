@@ -1,7 +1,7 @@
 class packetbeat::package {
 
   package { $packetbeat::package:
-    ensure   => $packetbeat::version,
+    ensure   => 'installed',
     provider => 'rpm',
     source   => "/root/$packetbeat::package",
   }
