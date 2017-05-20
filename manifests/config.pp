@@ -6,7 +6,7 @@ class packetbeat::config {
   $es_password = $packetbeat::es_password
   $es_username = $packetbeat::es_username
 
-  notify{ "es_vip is: ${es_vip}"}
+  notify{ "es_vip is: ${es_vip}": }
 
   file { $packetbeat::config:
     ensure  => present,
