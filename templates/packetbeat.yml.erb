@@ -532,21 +532,21 @@ packetbeat.protocols.nfs:
 #-------------------------- Elasticsearch output -------------------------------
 output.elasticsearch:
   # Boolean flag to enable or disable the output module.
-  #enabled: true
+  enabled: true
 
   # Array of hosts to connect to.
   # Scheme and port can be left out and will be set to the default (http and 9200)
   # In case you specify and additional path, the scheme is required: http://localhost:9200/path
   # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
-  hosts: ["http://usw2a-elastic-dev-data01.corp.uber.internal:9200"]
+  hosts: ["http://<%- @es_vip -%>:<%- @es_port -%>"]
 
   # Set gzip compression level.
   #compression_level: 0
 
   # Optional protocol and basic auth credentials.
-  protocol: "https"
-  username: "logstash"
-  password: "7loGstash6"
+  protocol: "http"
+  username: "<%- @es_username -%>"
+  password: "<%- @es_password -%>"
 
   # Dictionary of HTTP parameters to pass within the url with index operations.
   #parameters:

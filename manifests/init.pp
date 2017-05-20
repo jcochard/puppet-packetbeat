@@ -1,13 +1,15 @@
 # Module for installing packetbeat on CentOS/Debian-like systems
-class packetbeat ( $package  = $packetbeat::params::package,
-                   $service  = $packetbeat::params::service,
-                   $config   = $packetbeat::params::config,
-                   $version  = $packetbeat::params::version,
-                   $ensure   = 'running',
-                   $enable   = true,
-                   $es_vip   = undef,
-                   $es_port  = undef,
-                   $template = "${module_name}/packetbeat.yml.erb"
+class packetbeat ( $package     = $packetbeat::params::package,
+                   $service     = $packetbeat::params::service,
+                   $config      = $packetbeat::params::config,
+                   $version     = $packetbeat::params::version,
+                   $ensure      = 'running',
+                   $enable      = true,
+                   $es_vip      = undef,
+                   $es_port     = undef,
+                   $es_username = undef,
+                   $es_password = undef,
+                   $template    = "${module_name}/packetbeat.yml.erb"
 
   ) inherits packetbeat::params {
 

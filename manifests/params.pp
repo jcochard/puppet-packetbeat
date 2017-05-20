@@ -1,4 +1,4 @@
-# packetbeat comments
+# packetbeat params for various OS's
 class packetbeat::params {
   case $facts['os']['family'] {
     'RedHat': {
@@ -13,7 +13,7 @@ class packetbeat::params {
       $supported  = true
       $version    = '5.4.0'
       $libpcap    = 'libpcap0.8'
-      $package    = "packetbeat"
+      $package    = 'packetbeat'
       $service    = 'packetbeat'
       $config     = '/etc/packetbeat/packetbeat.yml'
     }
