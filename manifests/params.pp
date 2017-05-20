@@ -1,5 +1,9 @@
 # packetbeat params for various OS's
 class packetbeat::params {
+
+  $packetbeat_user  = 'root'
+  $packetbeat_owner = 'root'
+
   case $facts['os']['family'] {
     'RedHat': {
       $supported  = true
