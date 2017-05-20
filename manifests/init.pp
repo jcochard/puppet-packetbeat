@@ -17,6 +17,9 @@ class packetbeat (
 
   include stdlib
 
+  anchor {'packetbeat::begin': }
+  anchor {'packetbeat::end': }
+
   # Validate parameters
   # ensure
   if ! ($ensure in [ 'present', 'absent' ]) {
