@@ -1,8 +1,8 @@
 # Definied type to manage configs in puppet-control rather than the module
 # Can define content directly, or from a puppet source, or a template
 define packetbeat::configfile (
-  $content = undef,
-  $source  = undef,
+  $content  = undef,
+  $source   = undef,
   $template = undef,
 ) {
 
@@ -13,11 +13,11 @@ define packetbeat::configfile (
     $config_content = $content
   }
 
-  file { $name:
+  file_fragment { $name:
     content => $config_content,
+    tag     => "PB_CONFIG_${::fqdn}",
     source  => $source,
-    owner   => $packetbeat::packetbeat_user,
-    group   => $packetbeat::packetbeat_group,
+    before  => File[$packetbeat::config]
   }
 
-  }
+}
