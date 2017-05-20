@@ -1,6 +1,8 @@
 # packetbeat params for various OS's
 class packetbeat::params {
 
+  $conf_dir         = '/etc/packetbeat'
+  $ensure           = 'present'
   $packetbeat_user  = 'root'
   $packetbeat_owner = 'root'
 
