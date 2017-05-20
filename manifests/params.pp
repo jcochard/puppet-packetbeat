@@ -4,8 +4,8 @@ class packetbeat::params {
     'RedHat': {
       $supported  = true
       $version    = '5.4.0'
-      $package    = "packetbeat-${version}-x86_64"
       $libpcap    = 'libpcap'
+      $package    = "packetbeat-${version}"
       $service    = 'packetbeat'
       $config     = '/etc/packetbeat/packetbeat.yml'
     }
@@ -13,7 +13,7 @@ class packetbeat::params {
       $supported  = true
       $version    = '5.4.0'
       $libpcap    = 'libpcap0.8'
-      $package    = "packetbeat-${version}-amd64"
+      $package    = "packetbeat-${version}"
       $service    = 'packetbeat'
       $config     = '/etc/packetbeat/packetbeat.yml'
     }
