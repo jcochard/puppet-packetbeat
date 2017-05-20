@@ -17,16 +17,33 @@ class packetbeat (
 
   include stdlib
 
+  # Validate parameters
   # ensure
   if ! ($ensure in [ 'present', 'absent' ]) {
     fail("\"${ensure}\" is not a valid ensure parameter value")
   }
 
-  if $packetbeat::params::supported == true {
-    anchor { 'packetbeat::start':}->
-    class  { 'packetbeat::package':}~>
-    class  { 'packetbeat::config':}~>
-    class  { 'packetbeat::service':}~>
-    anchor { 'packetbeat::end':}
+  # Manage relationships
+  if $ensure == 'present' {
+
+    # we need the software before configuring it
+    Anchor['packetbeat::begin']
+    -> Class['packetbeat::package']
+    -> Class['packetbeat::config']
+
+    # we need the software and a working configuration before running a service
+    Class['packetbeat::package'] -> Class['packetbeat::service']
+    Class['packetbeat::config']  -> Class['packetbeat::service']
+
+    Class['packetbeat::service'] -> Anchor['packetbeat::end']
+
+  } else {
+
+    # make sure all services are getting stopped before software removal
+    Anchor['packetbeat::begin']
+    -> Class['packetbeat::service']
+    -> Class['packetbeat::package']
+    -> Anchor['packetbeat::end']
+
   }
 }
