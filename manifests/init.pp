@@ -26,6 +26,13 @@ class packetbeat (
     fail("\"${ensure}\" is not a valid ensure parameter value")
   }
 
+  # Call other classes
+  class { 'packetbeat::package': }
+
+  class { 'packetbeat::config': }
+
+  class { 'packetbeat::service': }
+
   # Manage relationships
   if $ensure == 'present' {
 

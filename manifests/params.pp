@@ -3,8 +3,8 @@ class packetbeat::params {
 
   $conf_dir         = '/etc/packetbeat'
   $ensure           = 'present'
-  $packetbeat_user  = 'root'
-  $packetbeat_owner = 'root'
+  $user             = 'root'
+  $group            = 'root'
   $status           = 'running'
 
   case $facts['os']['family'] {
