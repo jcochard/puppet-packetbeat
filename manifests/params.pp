@@ -5,6 +5,7 @@ class packetbeat::params {
   $ensure           = 'present'
   $packetbeat_user  = 'root'
   $packetbeat_owner = 'root'
+  $status           = 'running'
 
   case $facts['os']['family'] {
     'RedHat': {

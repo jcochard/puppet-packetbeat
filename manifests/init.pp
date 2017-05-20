@@ -1,5 +1,7 @@
 # Module for installing packetbeat on CentOS/Debian-like systems
 class packetbeat (
+  $config            = $packetbeat::params::config,
+  $conf_dir          = $packetbeat::params::conf_dir,
   $ensure            = $packetbeat::params::ensure,
   $enable            = true,
   $package           = $packetbeat::params::package,
@@ -8,8 +10,7 @@ class packetbeat (
   $purge_configdir   = true,
   $restart_on_change = true,
   $service           = $packetbeat::params::service,
-  $config            = $packetbeat::params::config,
-  $conf_dir          = $packetbeat::params::conf_dir,
+  $status            = $packetbeat::params::status,
   $version           = $packetbeat::params::version,
 
   ) inherits packetbeat::params {
