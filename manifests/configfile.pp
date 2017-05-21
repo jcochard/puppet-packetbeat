@@ -4,6 +4,7 @@ define packetbeat::configfile (
   $content  = undef,
   $source   = undef,
   $template = undef,
+  $order    = '10',
 ) {
 
   if ($template != undef ) {
@@ -17,7 +18,7 @@ define packetbeat::configfile (
     content => $config_content,
     tag     => "PB_CONFIG_${::fqdn}",
     source  => $source,
-    order   => '10',
+    order   => $order,
     before  => File_concat['pb_config']
   }
 
