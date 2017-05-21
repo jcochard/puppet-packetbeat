@@ -7,7 +7,6 @@ class packetbeat (
   $package           = $packetbeat::params::package,
   $packetbeat_user   = $packetbeat::params::user,
   $packetbeat_group  = $packetbeat::params::group,
-  $purge_configdir   = true,
   $restart_on_change = true,
   $service           = $packetbeat::params::service,
   $status            = $packetbeat::params::status,

@@ -10,8 +10,6 @@ class packetbeat::config {
 
     file { $packetbeat::conf_dir:
       ensure  => directory,
-      purge   => $packetbeat::purge_configdir,
-      recurse => $packetbeat::purge_configdir,
     }
 
     file_concat { 'pb_config':
