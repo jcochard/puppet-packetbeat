@@ -30,8 +30,6 @@ class packetbeat (
   }
   # restart on change
   validate_bool($restart_on_change)
-  # purge conf dir
-  validate_bool($purge_configdir)
 
   # Call other classes
   class { 'packetbeat::package': }
