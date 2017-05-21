@@ -17,7 +17,7 @@ define packetbeat::configfile (
     content => $config_content,
     tag     => "PB_CONFIG_${::fqdn}",
     source  => $source,
-    order   => 10,
+    order   => '10',
     before  => File_concat['pb_config']
   }
 
