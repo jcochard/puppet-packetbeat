@@ -3,7 +3,6 @@
 <% scope['packetbeat::protocols_hash'].each_pair do |key, value| -%>
 packetbeat.protocol.<%= key %>:
   enabled: true
-  value: <%= value %>
   <%- unless value.nil? -%>
   <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>

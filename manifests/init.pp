@@ -22,16 +22,14 @@ class packetbeat (
   anchor {'packetbeat::end': }
 
   # Validate parameters
-  # ensure
   if ! ($ensure in [ 'present', 'absent' ]) {
     fail("\"${ensure}\" is not a valid ensure parameter value")
   }
-  # service status
   if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
     fail("\"${status}\" is not a valid status parameter value")
   }
-  # restart on change
   validate_bool($restart_on_change)
+  validate_bool($default_config)
 
   # Call other classes
   class { 'packetbeat::package': }
