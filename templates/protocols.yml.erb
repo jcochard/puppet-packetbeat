@@ -4,7 +4,7 @@
 packetbeat.protocol.<%= key %>:
   enabled: true
   value: <%= value %>
-  <%- unless value == 'undef' -%>
+  <%- unless value.nil? -%>
   <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>
   <%- end -%>
