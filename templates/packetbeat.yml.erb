@@ -2,7 +2,6 @@
 <% scope['packetbeat::config_hash'].each_pair do |key, value| -%>
 <%- if value.is_a?(String) -%>
 <%= key %>: <%= value %>
-<%- end -%>
 <%- else %>
 <%- unless value.nil? -%>
 <%- value.each_pair do |key, value| -%>
