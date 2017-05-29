@@ -3,6 +3,7 @@ class packetbeat (
   $config             = $packetbeat::params::config,
   $conf_dir           = $packetbeat::params::conf_dir,
   $config_hash        = undef,
+  $config_template    = undef,
   $default_config     = true,
   $ensure             = $packetbeat::params::ensure,
   $enable             = true,

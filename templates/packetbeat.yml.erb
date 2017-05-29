@@ -1,11 +1,13 @@
 # Begin packetbeat configuration section
 <% scope['packetbeat::config_hash'].each_pair do |key, value| -%>
-<% unless value.is_a?(Hash) -%>
+<%- if value.is_a?(String) -%>
 <%= key %>: <%= value %>
 <%- end -%>
+<%- else %>
 <%- unless value.nil? -%>
 <%- value.each_pair do |key, value| -%>
 <%= key %>: <%= value %>
+<%- end -%>
 <%- end -%>
 <%- end -%>
 # End packetbeat configuration section
