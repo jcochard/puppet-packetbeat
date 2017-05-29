@@ -1,6 +1,6 @@
 # Begin outputs configuration section
 <% scope['packetbeat::outputs_hash'].each_pair do |key, value| -%>
-outputs.<%= key %>:
+output.<%= key %>:
   enabled: true
   <%- unless value.nil? -%>
   <%- value.each_pair do |key, value| -%>
