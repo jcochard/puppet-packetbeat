@@ -1,0 +1,18 @@
+# Enabled protocols, managed by Puppet
+# Changes will be overwritten
+<% @protocols_enabled.each_pair do |key, value| -%>
+packetbeat.protocol.<%= key %>:
+  enabled: true
+  <%- unless value.nil? -%>
+  <%- value.each_pair do |key, value| -%>
+  <%= key %>: <%= value %>
+  <%- end -%>
+  <%- end -%>
+<%- end -%>
+
+# Disabled protocols, managed by Puppet
+# Changes will be overwritten
+<%- @protocols_disabled.each do |val| -%>
+packetbeat.protocols.<%= val -%>:
+  enabled: false
+<%- end %>

@@ -1,0 +1,8 @@
+output.elasticsearch:
+  enabled: true
+  hosts: ["<%= @es_vip -%>:<%= @es_port -%>"]
+  protocol: "http"
+  username: "<%= @es_username -%>"
+  password: "<%= @es_password -%>"
+  ssl.verificiation_mode: none
+<%- %>

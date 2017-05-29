@@ -1,16 +1,19 @@
 # Module for installing packetbeat on CentOS/Debian-like systems
 class packetbeat (
-  $config            = $packetbeat::params::config,
-  $conf_dir          = $packetbeat::params::conf_dir,
-  $ensure            = $packetbeat::params::ensure,
-  $enable            = true,
-  $package           = $packetbeat::params::package,
-  $packetbeat_user   = $packetbeat::params::user,
-  $packetbeat_group  = $packetbeat::params::group,
-  $restart_on_change = true,
-  $service           = $packetbeat::params::service,
-  $status            = $packetbeat::params::status,
-  $version           = $packetbeat::params::version,
+  $config             = $packetbeat::params::config,
+  $conf_dir           = $packetbeat::params::conf_dir,
+  $default_config     = true,
+  $ensure             = $packetbeat::params::ensure,
+  $enable             = true,
+  $package            = $packetbeat::params::package,
+  $packetbeat_user    = $packetbeat::params::user,
+  $packetbeat_group   = $packetbeat::params::group,
+  $protocols_disabled = undef,
+  $protocols_hash     = undef,
+  $restart_on_change  = true,
+  $service            = $packetbeat::params::service,
+  $status             = $packetbeat::params::status,
+  $version            = $packetbeat::params::version,
 
   ) inherits packetbeat::params {
 
@@ -52,7 +55,7 @@ class packetbeat (
 
   } else {
 
-    # make sure all services are getting stopped before software removal
+    # make sure all services are stopped before software removal
     Anchor['packetbeat::begin']
     -> Class['packetbeat::service']
     -> Class['packetbeat::package']
