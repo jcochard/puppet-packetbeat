@@ -3,9 +3,5 @@
 <% @protocols_hash.each_pair do |key, value| -%>
 packetbeat.protocol.<%= key %>:
   enabled: true
-  <%- if value -%>
-  <%- value.each_pair do |key, value| -%>
-  <%= key %>: <%= value %>
-  <%- end -%>
-  <%- end -%>
+  value: <%= value %>
 <%- end -%>
