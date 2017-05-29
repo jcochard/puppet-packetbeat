@@ -1,8 +1,11 @@
-output.elasticsearch:
+# Managed by Puppet
+# Changes will be overwritten
+<% scope['packetbeat::ouputs_hash'].each_pair do |key, value| -%>
+ouputs.<%= key %>:
   enabled: true
-  hosts: ["<%= @es_vip -%>:<%= @es_port -%>"]
-  protocol: "http"
-  username: "<%= @es_username -%>"
-  password: "<%= @es_password -%>"
-  ssl.verificiation_mode: none
-<%- %>
+  <%- unless value.nil? -%>
+  <%- value.each_pair do |key, value| -%>
+  <%= key %>: <%= value %>
+  <%- end -%>
+  <%- end -%>
+<%- end -%>

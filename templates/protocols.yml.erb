@@ -1,4 +1,4 @@
-# Enabled protocols, managed by Puppet
+# Managed by Puppet
 # Changes will be overwritten
 <% scope['packetbeat::protocols_hash'].each_pair do |key, value| -%>
 packetbeat.protocol.<%= key %>:
