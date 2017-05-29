@@ -1,6 +1,6 @@
 # Managed by Puppet
 # Changes will be overwritten
-<% scope['packetbeat::ouputs_hash'].each_pair do |key, value| -%>
+<% scope['packetbeat::outputs_hash'].each_pair do |key, value| -%>
 ouputs.<%= key %>:
   enabled: true
   <%- unless value.nil? -%>
