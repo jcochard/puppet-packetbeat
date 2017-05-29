@@ -3,7 +3,7 @@
 <% @protocols_hash.each_pair do |key, value| -%>
 packetbeat.protocol.<%= key %>:
   enabled: true
-  <%- unless key = 'icmp' -%>
+  <%- if value -%>
   <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>
   <%- end -%>
