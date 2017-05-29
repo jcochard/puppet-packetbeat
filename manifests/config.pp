@@ -7,13 +7,11 @@ class packetbeat::config {
   }
 
   if ( $packetbeat::ensure == 'present' ) {
-
     file { $packetbeat::conf_dir:
       ensure  => directory,
     }
 
     if ( $packetbeat::default_config != true ) {
-
       packetbeat::configfile { 'packetbeat_config':
         content => template("${module_name}/packetbeat.yml.erb"),
         order   => '10',
@@ -26,7 +24,7 @@ class packetbeat::config {
         content => template("${module_name}/protocols.yml.erb"),
         order   => '1',
       }
-
+      
       file_concat { 'pb_config':
         ensure  => 'present',
         tag     => "PB_CONFIG_${::fqdn}",
