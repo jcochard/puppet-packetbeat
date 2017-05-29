@@ -14,8 +14,6 @@ class packetbeat::config {
 
     if ( $packetbeat::default_config != true ) {
 
-      $protocols_hash = $packetbeat::protocols_hash
-
       packetbeat::configfile { 'packetbeat_config':
         content => template("${module_name}/packetbeat.yml.erb"),
         order   => '10',
