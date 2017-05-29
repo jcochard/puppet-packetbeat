@@ -1,5 +1,7 @@
 # Managed by Puppet
 # Changes will be overwritten
+
+# Begin protocol configuration section
 <% scope['packetbeat::protocols_hash'].each_pair do |key, value| -%>
 packetbeat.protocol.<%= key %>:
   enabled: true
@@ -9,3 +11,5 @@ packetbeat.protocol.<%= key %>:
   <%- end -%>
   <%- end -%>
 <%- end %>
+# End protocol configuration section
+<%- %>
