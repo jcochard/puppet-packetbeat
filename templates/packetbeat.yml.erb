@@ -3,7 +3,7 @@
 <%- if value.is_a?(String) -%>
 <%= key %>: <%= value %>
 <%- else %>
-<%= key %>
+<%= key -%>
 <%- unless value.nil? -%>
 <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>
