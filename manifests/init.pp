@@ -8,7 +8,6 @@ class packetbeat (
   $package            = $packetbeat::params::package,
   $packetbeat_user    = $packetbeat::params::user,
   $packetbeat_group   = $packetbeat::params::group,
-  $protocols_disabled = undef,
   $protocols_hash     = undef,
   $restart_on_change  = true,
   $service            = $packetbeat::params::service,
