@@ -4,7 +4,7 @@
 <%= key %>: <%= value %>
 <%- else -%>
 <%= key -%>:
-<%- unless value.nil? -%>
+<%- if value.is_a?(Hash) -%>
 <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>
 <%- end -%>
