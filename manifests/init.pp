@@ -5,6 +5,7 @@ class packetbeat (
   $default_config     = true,
   $ensure             = $packetbeat::params::ensure,
   $enable             = true,
+  $outputs_hash       = undef,
   $package            = $packetbeat::params::package,
   $packetbeat_user    = $packetbeat::params::user,
   $packetbeat_group   = $packetbeat::params::group,
