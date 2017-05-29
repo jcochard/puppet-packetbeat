@@ -1,15 +1,12 @@
-# Begin packetbeat configuration options
-packetbeat.interfaces.device: any
-packetbeat.flows:
-  enabled: true
-  timeout: 30s
-  period: 10s
-packetbeat.interfaces.snaplen: 1500
-
-logging.to_files: true
-logging.files:
-  path: /var/log/packetbeat
-  name: packetbeat.log
-
-# End packetbeat configuration options
-<%- %>
+# Begin packetbeat configuration section
+<% scope['packetbeat::config_hash'].each_pair do |key, value| -%>
+<% unless value.is_a?(Hash) -%>
+<%= key %>: <%= value %>
+<%- end -%>
+<%- unless value.nil? -%>
+<%- value.each_pair do |key, value| -%>
+<%= key %>: <%= value %>
+<%- end -%>
+<%- end -%>
+# End packetbeat configuration section
+<%- end %>

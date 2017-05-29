@@ -1,11 +1,11 @@
-# Managed by Puppet
-# Changes will be overwritten
+# Begin outputs configuration section
 <% scope['packetbeat::outputs_hash'].each_pair do |key, value| -%>
-ouputs.<%= key %>:
+outputs.<%= key %>:
   enabled: true
   <%- unless value.nil? -%>
   <%- value.each_pair do |key, value| -%>
   <%= key %>: <%= value %>
   <%- end -%>
   <%- end -%>
+# End outputs configuration section
 <%- end -%>
