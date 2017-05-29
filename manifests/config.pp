@@ -15,15 +15,15 @@ class packetbeat::config {
     if ( $packetbeat::default_config != true ) {
 
       packetbeat::configfile { 'packetbeat_config':
-        content => template('profile/packetbeat/packetbeat.yml.erb'),
+        content => template("${module_name}/packetbeat.yml.erb"),
         order   => '10',
       }
       packetbeat::configfile { 'outputs':
-        content => template('profile/packetbeat/outputs.yml.erb'),
+        content => template("${module_name}/outputs.yml.erb"),
         order   => '11',
       }
       packetbeat::configfile { 'protocols':
-        content => template('profile/packetbeat/protocols.yml.erb'),
+        content => template("${module_name}/protocols.yml.erb"),
         order   => '1',
       }
 
