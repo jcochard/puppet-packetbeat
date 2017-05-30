@@ -1,4 +1,4 @@
-Packetbeat module for Uber
+Packetbeat module
 Jason Cochard (jasonc@uber.com)
 05/19/2017
 
