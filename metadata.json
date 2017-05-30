@@ -1,0 +1,30 @@
+{
+      "name": "jasonc-packetbeat",
+      "version": "0.0.1",
+      "author": "Jason Cochard",
+      "license": "Apache-2.0",
+      "summary": "A module installing and configuring Packetbeat",
+      "source": "https://github.com/jcochard/puppet-packetbeat",
+      "project_page": "https://forge.puppetlabs.com/jasonc/packetbeat",
+      "issues_url": "https://github.com/jcochard/puppet-packetbeat/issues",
+      "tags": ["elasticsearch", "packetbeat"],
+      "operatingsystem_support": [
+        {
+        "operatingsystem":"CentOS",
+        "operatingsystemrelease":[ "7.0" ]
+        },
+        {
+        "operatingsystem": "Ubuntu",
+        "operatingsystemrelease": [ "14.04" ]
+        },
+        {
+        "operatingsystem": "Debian",
+        "operatingsystemrelease": [ "8" ]
+        }
+       ],
+      "dependencies": [
+        { "name": "puppetlabs/stdlib", "version_requirement": ">= 3.2.0 < 5.0.0" },
+        { "name": "puppetlabs/firewall", "version_requirement": ">= 0.0.4 < 2.0.0" }
+      ],
+      "data_provider": "hiera"
+    }
