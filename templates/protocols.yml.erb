@@ -3,7 +3,7 @@
 
 # Begin protocol configuration section
 <% scope['packetbeat::protocols_hash'].each_pair do |key, value| -%>
-packetbeat.protocol.<%= key %>:
+packetbeat.protocols.<%= key %>:
   enabled: true
   <%- if value.is_a?(Hash) -%>
   <%- value.each_pair do |key, value| -%>

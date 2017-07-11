@@ -15,11 +15,10 @@ packetbeat::configfile { 'packetbeat_config':
 }
 ```
 
-We also support dynamically building the config with hashes, broken into three  
-sections. You will need to supply a config_hash,  outputs_hash, and protocols_hash  
+We also support dynamically building the config with hashes, broken into three sections. You will need to supply a config_hash,  outputs_hash, and protocols_hash  
 to generate a config. Example of each here in hiera.  Some of these are hashes of  
 hashes, while some values are just hashes.  
-  
+
 config_hash:  
 ```
 packetbeat::config_hash:
