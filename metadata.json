@@ -1,6 +1,6 @@
 {
       "name": "jasonc-packetbeat",
-      "version": "0.0.2",
+      "version": "0.0.3",
       "author": "Jason Cochard",
       "license": "Apache-2.0",
       "summary": "A module installing and configuring Packetbeat",
