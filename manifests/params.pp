@@ -1,28 +1,24 @@
 # packetbeat params for various OS's
 class packetbeat::params {
 
-  $conf_dir         = '/etc/packetbeat'
-  $ensure           = 'present'
-  $user             = 'root'
-  $group            = 'root'
-  $status           = 'running'
+  $conf_dir = '/etc/packetbeat'
+  $config   = '/etc/packetbeat/packetbeat.yml'
+  $ensure   = 'present'
+  $group    = 'root'
+  $package  = 'packetbeat'
+  $status   = 'running'
+  $service  = 'packetbeat'
+  $user     = 'root'
+  $version  = '5.4.0'
 
   case $facts['os']['family'] {
     'RedHat': {
       $supported  = true
-      $version    = '5.4.0'
       $libpcap    = 'libpcap'
-      $package    = "packetbeat-${version}"
-      $service    = 'packetbeat'
-      $config     = '/etc/packetbeat/packetbeat.yml'
     }
     'Debian': {
       $supported  = true
-      $version    = '5.4.0'
       $libpcap    = 'libpcap0.8'
-      $package    = 'packetbeat'
-      $service    = 'packetbeat'
-      $config     = '/etc/packetbeat/packetbeat.yml'
     }
     default: {
       $supported = false

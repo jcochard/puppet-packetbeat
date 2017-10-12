@@ -1,21 +1,21 @@
 # Module for installing packetbeat on CentOS/Debian-like systems
 class packetbeat (
-  $config             = $packetbeat::params::config,
-  $conf_dir           = $packetbeat::params::conf_dir,
-  $config_hash        = undef,
-  $config_template    = undef,
-  $default_config     = true,
-  $ensure             = $packetbeat::params::ensure,
-  $enable             = true,
-  $outputs_hash       = undef,
-  $package            = $packetbeat::params::package,
-  $packetbeat_user    = $packetbeat::params::user,
-  $packetbeat_group   = $packetbeat::params::group,
-  $protocols_hash     = undef,
-  $restart_on_change  = true,
-  $service            = $packetbeat::params::service,
-  $status             = $packetbeat::params::status,
-  $version            = $packetbeat::params::version,
+  $config                    = $::packetbeat::params::config,
+  $conf_dir                  = $::packetbeat::params::conf_dir,
+  $config_hash               = undef,
+  $config_template           = undef,
+  Boolean $default_config    = true,
+  $ensure                    = $::packetbeat::params::ensure,
+  $enable                    = true,
+  $outputs_hash              = undef,
+  $package                   = $::packetbeat::params::package,
+  $packetbeat_user           = $::packetbeat::params::user,
+  $packetbeat_group          = $::packetbeat::params::group,
+  $protocols_hash            = undef,
+  Boolean $restart_on_change = true,
+  $service                   = $::packetbeat::params::service,
+  $status                    = $::packetbeat::params::status,
+  $version                   = $::packetbeat::params::version,
 
   ) inherits packetbeat::params {
 
@@ -31,8 +31,6 @@ class packetbeat (
   if ! ($status in [ 'enabled', 'disabled', 'running', 'unmanaged' ]) {
     fail("\"${status}\" is not a valid status parameter value")
   }
-  validate_bool($restart_on_change)
-  validate_bool($default_config)
 
   # Call other classes
   class { 'packetbeat::package': }

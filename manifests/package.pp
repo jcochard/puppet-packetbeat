@@ -2,7 +2,7 @@
 class packetbeat::package {
 
   package { $packetbeat::package:
-    ensure => 'installed',
+    ensure => $::packetbeat::version,
   }
 
   package { $packetbeat::params::libpcap:
